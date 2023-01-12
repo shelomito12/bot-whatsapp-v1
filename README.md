@@ -53,6 +53,10 @@ await sendMediaVoiceNote(client, from, 'PTT-20220223-WA0000.opus')
 ## Installation
 __Download or Clone repository__
 
+```
+git clone https://github.com/jzvi12/bot-whatsapp-v1.git
+```
+
 __If using Ubuntu or any other Linux distro__
 > Make sure to install the following packages:
 ```
