@@ -1,7 +1,7 @@
 ## Whatsapp Bot
 
 > **Note**
-> Support for small businesses already running version 1 with Dialogflow will provided here
+> Support for small businesses already running version 1 with Dialogflow will be provided here.
 
 | Feature  | Status |
 | ------------- | ------------- |
