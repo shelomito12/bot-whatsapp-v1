@@ -96,4 +96,4 @@ __Start the bot__
 __Scan QR code with your Phone__
 > If testing in your local PC, you can also open browser and go to http://127.0.0.1:3000/qr
 
-Also, the process creates an Excel/CSV file with historical convertion and corresponding customer's WhatsApp number.
+Also, the process creates an Excel/CSV file with historical chats of corresponding customer's WhatsApp number.
