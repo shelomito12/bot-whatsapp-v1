@@ -1,30 +1,26 @@
-## Chatbot Whatsapp (OpenSource)
-
-#### Actualización
+## Whatsapp Bot
 
 | Feature  | Status |
 | ------------- | ------------- |
-| Dialogflow  | ✅  |
-| MySQL  | ✅  |
-| JSON File  | ✅  |
-| QR Scan (route) | ✅ |
-| Easy deploy heroku  | ✅  |
-| Buttons | ✅ℹ️  (No funciona en multi-device)|
-| Send Voice Note | ✅ |
-| Add support ubuntu/linux | ✅ |
+| [WWebJS Library](https://github.com/pedroslopez/whatsapp-web.js/) | ✅ |
+| Dialogflow Integration | ✅  |
+| Save to MySQL DB | ✅  |
+| Save to JSON File as DB | ✅  |
+| QR Scan in Terminal | ✅ |
+| Easily deploy to Heroku  | ✅  |
+| Buttons support | ✅ℹ️  (May not work in multi-device mode)|
+| Send Voice Notes | ✅ |
 
-## Requisitos
-- node v14 o superior
-- VSCode (Editor de codigo) [Descargar](https://code.visualstudio.com/download)
-- MySql (opcional) solo aplica si vas a usar el modo 'mysql'  [sql-bot.sql migración](https://github.com/leifermendez/bot-whatsapp/blob/main/sql-bot.sql)
-- Dialogflow (opcional) solo aplica si vas a usar el modo 'dialogflow'
+## Requirements
+- NodeJS v16+
+- VSCode code editor [Download](https://code.visualstudio.com/download)
+- MySql (optional) only applies if using 'mysql' mode
+- Dialogflow account (optional) only applies if using 'dialogflow' mode
 
-### (Nuevo) Botones
+### Buttons
 
-[![btn](https://i.imgur.com/W7oYlSu.png)](https://youtu.be/5lEMCeWEJ8o) 
-
-> Implementar los botones solo necesitas hacer uso del metodo __sendMessageButton__ que se encuentra dentro `./controllers/send` dejo un ejemplo de como usarlo.
-[Ver implementación](https://github.com/leifermendez/bot-whatsapp/blob/main/app.js#L123)
+To make use of buttons, you only need to call method __sendMessageButton__ which is in `./controllers/send`
+Example:
 
 ``` javascript
 const { sendMessageButton } = require('./controllers/send')
@@ -44,38 +40,35 @@ await sendMessageButton(
 
 ```
 
-## Notas de Voz
-[![voice note](https://i.imgur.com/zq6xYDp.png)](https://i.imgur.com/zq6xYDp.png) 
+## Voice Notes
 
-> Se pueden enviar notas de voz con formato nativo para que no se vea como reenviado. En este ejemplo enviare el archivo __PTT-20220223-WA0000.opus__ que se encuentra dentro de la carpeta de __/mediaSend__
+The bot can send voice notes using the native format so it doesn't appear as forwarded. In this example, I will send the file __PTT-20220223-WA0000.opus__ which can be found in the directory __/mediaSend__
 
 ``` javascript
 const { sendMediaVoiceNote } = require('./controllers/send')
 
 await sendMediaVoiceNote(client, from, 'PTT-20220223-WA0000.opus')
-
 ```
 
-## Instruciones
-__Descargar o Clonar repositorio__
+## Installation
+__Download or Clone repository__
 
-__Usas ¿Ubuntu / Linux?__
-> Asegurate de instalar los siguientes paquetes
+__If using Ubuntu or any other Linux distro__
+> Make sure to install the following packages:
 ```
 sudo apt-get install -y libgbm-dev
 sudo apt install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 ```
 
-__Instalar dependencias (npm install)__
-> Ubicate en le directorio que descargaste y via consola o terminal ejecuta el siguiente comando
+__Install dependencies (npm install)__
+> From the app root directory, execute the following command:
 
 ```
 npm i
 ``` 
 
-__Configurar .env__
-> Con el editor de texto crea un archivo `.env` el cual debes de guiarte del archivo `.env.example`
-[Ver video explicando](https://youtu.be/5lEMCeWEJ8o?t=381)
+__Configure .env File__
+> Create a file and name it `.env` (including period) from the provided template file `.env.example`:
 ```
 ######DATABASE: none, mysql, dialogflow
 
@@ -88,20 +81,16 @@ SQL_HOST=
 SQL_USER=
 SQL_PASS=
 SQL_DATABASE=
+DIALOGFLOW_MEDIA_FOR_SLOT_FILLING=false
+GDRIVE_FOLDER_ID=
 ```
 
-__Ejecutar el script__
-> Ubicate en le directorio que descargaste y via consola o terminal ejecuta el siguiente comando
+__Start the bot__
+> From the app root directory, execute the following command:
 `npm run start`
 
-__Whatsapp en tu celular__
-> Ahora abre la aplicación de Whatsapp en tu dispositivo y escanea el código QR
-<img src="https://i.imgur.com/RSbPtat.png" width="500"  />
-Tambien puedes visitar la pagina http://127.0.0.1:3000/qr
-
-__Listo 😎__
-> Cuando sale este mensaje tu BOT está __listo__ para trabajar!
-![](https://i.imgur.com/eoJ4Ruk.png)
+__Scan QR code with your Phone__
+If testing in your local PC, you can also open browser and go to http://127.0.0.1:3000/qr
 
 # ¿Quieres ver como se creó? 🤖
 - [Ver Video 1](https://www.youtube.com/watch?v=A_Xu0OR_HkE)
@@ -112,5 +101,5 @@ __Listo 😎__
 
 ![](https://i.imgur.com/OSUgljQ.png)
 
-> Ahora deberías  obtener un arespuesta por parte del BOT como la siguiente, ademas de esto tambien se crea un archivo excel
+> Ahora deberías  obtener una respuesta por parte del BOT como la siguiente, ademas de esto tambien se crea un archivo excel
 con el historial de conversación  con el número de tu cliente
