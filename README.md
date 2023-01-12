@@ -94,16 +94,6 @@ __Start the bot__
 `npm run start`
 
 __Scan QR code with your Phone__
-If testing in your local PC, you can also open browser and go to http://127.0.0.1:3000/qr
+> If testing in your local PC, you can also open browser and go to http://127.0.0.1:3000/qr
 
-# ¿Quieres ver como se creó? 🤖
-- [Ver Video 1](https://www.youtube.com/watch?v=A_Xu0OR_HkE)
-- [¿Como instalarlo? (Actulización)](https://youtu.be/5lEMCeWEJ8o)
-
-## ¿Como usarlo el chatbot de whatsapp?
-> Escribe un mensaje al whatsapp que vinculaste con tu BOT
-
-![](https://i.imgur.com/OSUgljQ.png)
-
-> Ahora deberías  obtener una respuesta por parte del BOT como la siguiente, ademas de esto tambien se crea un archivo excel
-con el historial de conversación  con el número de tu cliente
+Also, the process creates an Excel/CSV file with historical convertion and corresponding customer's WhatsApp number.
